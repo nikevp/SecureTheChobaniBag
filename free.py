@@ -45,7 +45,6 @@ def postReq(email):
     session = requests.Session()
     url = 'https://www.chobani.com/freeyogurt/'
     button = 'https://banner2.promotionpod.com/coupon/banner/802f84a4bdf3845e008b8f80d1468087451beb83/widget_click'
-    #resp = session.get(url, headers=headers)
     resp = session.get(button, headers=headers)
 
     respURL = resp.url
@@ -79,9 +78,6 @@ def postReq(email):
     coupon = 'https://banner2.promotionpod.com/coupon/' +uniq1+'/final_image?nonce='+uniq2+'&lang=EN'
     print('Coupon from here: ' + coupon)
     resp = requests.get(coupon, headers=headers)
-    #print(pdfURL)
-    #resp = session.get(pdfURL, headers=headers)
-
     with open(email+'.jpeg', 'wb') as f:
         f.write(resp.content)
 
